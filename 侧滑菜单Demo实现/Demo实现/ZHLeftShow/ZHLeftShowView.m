@@ -72,6 +72,7 @@
 //显示
 -(void)show{
     self.hidden = NO;
+    self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.4];
     __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.35 animations:^{
         weakSelf.leftVC.view.frame = CGRectMake(0, 0, SHOWWidth, ZHSCREENH);

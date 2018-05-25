@@ -10,6 +10,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()<ZHLeftShowViewDelegate>
+@property (nonatomic,weak) ZHLeftShowView *leftView;
 @end
 
 @implementation ViewController
@@ -17,13 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-  
+    ZHLeftShowView *leftView = [ZHLeftShowView leftShowView];
+    leftView.delegate = self;
+    self.leftView = leftView;
 }
 
 - (IBAction)clickLeft:(id)sender {
-    ZHLeftShowView *leftView = [ZHLeftShowView leftShowView];
-    leftView.delegate = self;
-    [leftView show];
+  
+    [_leftView show];
 }
 -(void)leftShowView:(ZHLeftShowView *)leftShowVie didSelectIndexpath:(NSIndexPath *)indexpath{
     NSLog(@"------点击了");
